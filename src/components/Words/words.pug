@@ -1,0 +1,16 @@
+.words
+   +each('$words as word, w')
+      .word(
+            class:current-word!='{$progress.word === w}'
+            class:typed!='{$progress.word > w}'
+         )
+         +each('word as char, c')
+            span(
+               class="character"
+               class:current-char!='{$progress.char === c && $progress.word === w}'
+               class:space!='{char === " " }'
+               class:error!='{$errors[w] && $errors[w][c]}'
+               class:typed-by-target!='{ $chaseMode && ($targetProgress.word > w  || $targetProgress.char >= c && $targetProgress.word === w )}'
+            )
+               | {char === " " ? '·' : char}
+

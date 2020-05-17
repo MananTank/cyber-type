@@ -1,0 +1,8 @@
+.keys
+   +each('Object.keys($keys) as k')
+      div(class="key {$keys[k].label} {$typed.key === k ? 'pressed' : '' }")
+         .name {k}
+         .stats
+            .speed {$keys[k].speed}
+               span.unit WPM
+            .times typed { $keys[k].typed} {  $keys[k].typed === 1 ? 'time' : 'times'}

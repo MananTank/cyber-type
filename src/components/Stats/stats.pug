@@ -1,0 +1,21 @@
+.stats
+   .left
+      TargetSlider
+
+   .center
+      .speed
+         div(class='value') { Math.round($speed) }
+         .unit WPM
+      .word-stats
+            span.count {$stats.words}
+            span.info words typed in
+            span.count { ($time / 1000).toFixed(2) } S
+
+   .right
+      .chase-mode(on:click='{chaseMode.toggle}')
+         .text SHADOOW mode
+         .value(class:on='{$chaseMode}') {$chaseMode ? 'on' : 'off'}
+         .tip
+            p compete with your target speed
+
+

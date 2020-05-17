@@ -1,0 +1,9 @@
+.target
+   span.goal
+      span.text Target is
+      span.value {$targetSpeed}
+      span.unit WPM
+   .slider
+      input(on:input='{handleChange}' min="{min}" max="{max}" type='range')
+      .bubble(bind:this='{bubble}')
+      .tip What is your target typing speed ?

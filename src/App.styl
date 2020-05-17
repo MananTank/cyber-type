@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+:global(html)
+   font-size 1vw
+
+
+:global(body)
+   font-family: 'Orbitron', sans-serif;
+   background-color var(--bodybg)
+   color var(--fontcolor)
+   user-select: none
+   transition all 200ms ease
+   overflow hidden
+
+
+.cybertype
+   cursor pointer
+   position absolute
+   bottom 2vh
+   font-size 1rem
+   right 50%
+   transform translateX(50%)
+   text-transform uppercase
+   letter-spacing 1.5em
+   font-weight bold
+   padding-top 2rem
+   &:hover
+      .info
+         opacity 1
+         pointer-events initial
+   .info
+      opacity: 0
+      pointer-events: none
+      transition all 400ms ease
+      transform translateX(50%)
+      box-shadow 0 0 20px var(--bodybg)
+      width 90vw
+      color var(--fontcolor)
+      font-size 2vh
+      position fixed
+      z-index 1000
+      bottom 3rem
+      text-align center
+      right 50%
+      background var(--bodybg)
+      padding 7vh
+      @media (max-width: 992px)
+         padding 12vh
+      .app
+         margin-bottom 50px
+      .creator
+         p
+            margin-bottom 30px
+            color var(--activechar)
+         a
+            color inherit
+            font-size 3vh
+            background linear-gradient(to right, var(--fontcolor), var(--activechar) )
+            background-size 0 1px
+            background-repeat: no-repeat
+            background-position: bottom left
+            text-decoration none
+            text-shadow 0 0 1rem var(--fontcolor)
+            padding 10px
+            animation glow 3s ease infinite alternate
+            transition all 200ms ease
+            &:hover
+               background-size 100% 1px
+
+
+// theme-switch -------------
+.theme-switch
+   cursor pointer
+   position absolute
+   bottom 2vh
+   left 1rem
+   size = 1rem
+   display flex
+   align-items center
+   padding 0
+   padding-top 2rem
+   &:hover
+      .tip
+         opacity 1
+
+   .s2, .s3, .s4
+      width size
+      flex-shrink: 0
+      height size
+      display block
+      box-shadow 0 0 40px var(--fontcolor)
+      margin-right 0.2em
+      animation spin 2s ease infinite
+
+   .s2
+      animation-delay: 100ms
+      background var(--activeword)
+   .s3
+      animation-delay: 200ms
+      background var(--activechar)
+   .s4
+      animation-delay: 300ms
+      background var(--fontcolor)
+
+   .theme-name
+      width 100%
+      margin-left 1rem
+      letter-spacing:0.5em
+      font-size 1rem
+      text-shadow 0 0 1rem var(--fontcolor)
+   .tip
+      position absolute
+      top 0
+      left 0
+      font-size 1rem
+      padding 0.5rem
+      max-width 200px
+      letter-spacing: 0.5em
+      transform translateY(-100%)
+      text-transform: uppercase
+      text-align: center
+      opacity 0
+      transition all 200ms ease
+
+
+.reset
+   // border 1px solid red
+   font-size 1rem
+   letter-spacing: 0.5em
+   position absolute
+   bottom 2vh
+   right 2vh
+   text-shadow 0 0 1rem var(--fontcolor)
+   cursor pointer
+   padding-top 2rem
+   text-transform: uppercase
+
+
+@keyframes glow
+   from
+      text-shadow 0 0 10px var(--fontcolor)
+   to
+      text-shadow 0 0 20px var(--fontcolor)
+
+
+
+@keyframes spin
+   to
+      transform rotate(1turn)

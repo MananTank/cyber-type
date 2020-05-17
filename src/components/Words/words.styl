@@ -1,0 +1,67 @@
+.words
+   display        flex
+   align-items    center
+   justify-content center
+   padding        1rem
+   max-width      1000px
+   margin         0 auto
+   flex-wrap      wrap
+   padding 2vh 4rem
+
+// words ---------------------
+.word
+   margin-bottom  2vh
+   display        flex
+   transition     all 50ms ease
+
+   &.current-word .character
+      background var(--activeword)
+   &.typed .character
+         color var(--typedword)
+         text-shadow 0 0 1em var(--typedword)
+
+
+// char ---------------------
+.character
+   font-size   4vh
+   padding     0.15em
+   display     inline-block
+   border-bottom 1px solid transparent
+   transition border 200ms ease
+   &.space
+      margin  0 0.3em
+      background     transparent !important
+      text-shadow 0 0 10px var(--activechar), 0 0 20px var(--activechar)
+
+   &.error
+      position relative
+      color var(--error) !important
+      text-shadow 0 0 30px var(--error),  0 0 40px var(--error) !important
+      font-weight bold
+      filter none !important
+      &.current-char
+         animation cursor-error 200ms ease infinite
+
+   &.current-char
+      animation  cursor 500ms ease infinite
+
+   &.typed-by-target
+      border-bottom 1px solid var(--activechar)
+
+
+@keyframes cursor
+   0%,60%
+      background  var(--activechar)
+      color       var(--bodybg)
+   70%, 100%
+      background  var(--bodybg)
+      color       var(--activechar)
+
+@keyframes cursor-error
+   0%,60%
+      background  var(--error)
+      color       var(--bodybg)
+   70%, 100%
+      background  var(--bodybg)
+      color       var(--error)
+
